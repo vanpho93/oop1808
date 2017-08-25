@@ -7,13 +7,19 @@ class Point {
     }
 }
 
+// Line.compare();
+// them 1 san pham 
+
 class Line {
+    static compare(l1, l2) { //class method // static method
+        return l1.getLength() > l2.getLength();
+    }
     constructor(pointA, pointB) {
         this.pointA = pointA;
         this.pointB = pointB;
     }
 
-    getLength() {
+    getLength() { //instance method
         const dx = this.pointA.x - this.pointB.x;
         const dy = this.pointA.y - this.pointB.y;
         return Math.sqrt(dx * dx + dy * dy);
@@ -38,4 +44,8 @@ class Triangle {
 const p1 = new Point(0, 0);
 const p2 = new Point(1, 1);
 const l1 = new Line(p1, p2);
+const l2 = new Line(p2, p1);
+
+console.log(Line.compare(l2, l1));
+
 console.log(l1.getLength());
